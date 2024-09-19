@@ -1,7 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
+import Cart from "./pages/Cart";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Product from "./pages/Product";
@@ -9,7 +13,10 @@ import Login from "./pages/Login";
 import PlaceOrder from "./pages/PlaceOrder";
 const App = () => {
   return (
-    <div>
+    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      {/* Putting Navbar at top */}
+      <Navbar />
+
       <Routes>
         {/* Route for different pages now */}
         <Route path="/" element={<Home />}></Route>
