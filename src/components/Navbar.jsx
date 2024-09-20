@@ -8,7 +8,8 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       {/* here's the logo if it needs to be changed */}
-      <img src={assets.logo} alt="Logo" className="w-36" />
+      {/* <img src={assets.logo} alt="Logo" className="w-36" /> */}
+      <p className="w-40 text-xl font-semi-bold r">ShopNow</p>
 
       {/* Now for menu items */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
