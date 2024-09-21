@@ -8,6 +8,8 @@ const ShopContextProvider = (props) => {
 
   const value = {
     products,
+    currency,
+    delivery_fee,
   };
 
   return (

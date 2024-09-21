@@ -9,7 +9,9 @@ const Navbar = () => {
     <div className="flex items-center justify-between py-5 font-medium">
       {/* here's the logo if it needs to be changed */}
       {/* <img src={assets.logo} alt="Logo" className="w-36" /> */}
-      <p className="w-40 text-xl font-semi-bold r">ShopNow</p>
+      <Link to="/">
+        <img src={assets.logo} className="w-36" alt="" />
+      </Link>
 
       {/* Now for menu items */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
@@ -71,7 +73,7 @@ const Navbar = () => {
           onClick={() => setVisible(true)}
           src={assets.menu_icon}
           alt="menu-icon"
-          className="w-5 cursor-pointer"
+          className="w-5 cursor-pointer sm:hidden"
         />
       </div>
       {/* Sidebar */}
