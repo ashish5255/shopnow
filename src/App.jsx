@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import Login from "./pages/Login";
 import PlaceOrder from "./pages/PlaceOrder";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="place-order" element={<PlaceOrder />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
