@@ -12,12 +12,13 @@ import Product from "./pages/Product";
 import Login from "./pages/Login";
 import PlaceOrder from "./pages/PlaceOrder";
 import Footer from "./components/Footer";
+import SearchBar from "./components/SearchBar";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       {/* Putting Navbar at top */}
       <Navbar />
-
+      <SearchBar />
       <Routes>
         {/* Route for different pages now */}
         <Route path="/" element={<Home />}></Route>
