@@ -5,7 +5,7 @@ import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
 
 const Collection = () => {
-  const { products } = useContext(ShopContext); // Assuming you're using context
+  const { products, search, showSearch } = useContext(ShopContext); // Assuming you're using context
 
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
@@ -35,12 +35,21 @@ const Collection = () => {
   const applyFilter = () => {
     let productsCopy = products.slice();
 
+    // Apply Search Filter
+    if (showSearch && search) {
+      productsCopy = productsCopy.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    // Apply Category Filter
     if (category.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         category.includes(item.category)
       );
     }
 
+    // Apply Subcategory Filter
     if (subCategory.length > 0) {
       productsCopy = productsCopy.filter((item) =>
         subCategory.includes(item.subCategory)
@@ -50,6 +59,7 @@ const Collection = () => {
     setFilterProducts(productsCopy);
   };
 
+  // Sort products based on the selected sort type
   const sortProducts = () => {
     let fpCopy = filterProducts.slice();
 
@@ -63,19 +73,22 @@ const Collection = () => {
         break;
 
       default:
-        applyFilter();
+        applyFilter(); // Sort by relevance
         break;
     }
   };
 
+  // Initialize filtered products
   useEffect(() => {
     setFilterProducts(products);
   }, [products]);
 
+  // Apply filters when category, subcategory, search, or showSearch change
   useEffect(() => {
     applyFilter();
-  }, [category, subCategory]);
+  }, [category, subCategory, search, showSearch]);
 
+  // Sort products when sortType changes
   useEffect(() => {
     sortProducts();
   }, [sortType]);
@@ -92,7 +105,7 @@ const Collection = () => {
           <img
             className={`h-3 sm:hidden ${showFilter ? "rotate-90" : ""}`}
             src={assets.dropdown_icon}
-            alt=""
+            alt="Filter Dropdown"
           />
         </p>
 
@@ -184,7 +197,7 @@ const Collection = () => {
           >
             <option value="relevant">Relevant</option>
             <option value="low-high">Low-High</option>
-            <option value="high-low">High-Low </option>
+            <option value="high-low">High-Low</option>
           </select>
         </div>
 
