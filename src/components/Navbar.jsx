@@ -9,8 +9,6 @@ const Navbar = () => {
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
-      {/* here's the logo if it needs to be changed */}
-      {/* <img src={assets.logo} alt="Logo" className="w-36" /> */}
       <Link to="/">
         <img src={assets.logo} className="w-36" alt="" />
       </Link>
@@ -47,11 +45,13 @@ const Navbar = () => {
         />
         {/* Now turn for profile icon and dropdown for login/signup */}
         <div className="group relative">
-          <img
-            className="w-5 cursor-pointer"
-            src={assets.profile_icon}
-            alt="profile-icon"
-          />
+          <Link to="/login">
+            <img
+              className="w-5 cursor-pointer"
+              src={assets.profile_icon}
+              alt="profile-icon"
+            />
+          </Link>
           {/* Here's the dropdown profile menu with clicking icon */}
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
             <div className="flex flex-col gap-2 w-36 px-5 py-3 bg-slate-100 text-gray-500">
@@ -122,7 +122,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
-            to="/about"
+            to="/contact"
             className="py-2 pl-6 border"
           >
             CONTACT
