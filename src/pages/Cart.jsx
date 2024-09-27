@@ -91,7 +91,10 @@ const Cart = () => {
       <div className="flex justify-end my-20">
         <div className="w-full sm:w-[450px]">
           <CartTotal />
-          <div className=" w-full text-end">
+          <div
+            className=" w-full text-end"
+            onClick={() => navigate("/place-order")}
+          >
             <button
               onClick={() => navigate("/place-order")}
               className=" bg-black text-white text-sm py-3 px-9 hover:bg-gray-800"
